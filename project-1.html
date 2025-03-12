@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Colour Change</title></head
+  ><style>
+    .container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+    .heading {
+      font-size: 25px;
+      font-weight: bolder;
+      text-decoration: underline;
+      font-family: sans-serif;
+      text-align: center;
+    }
+    .content {
+      text-align: center;
+      font-family: Tahoma, sans-serif;
+      font-size: 20px;
+    }
+    .container button {
+      height: 150px;
+      width: 150px;
+      margin: 20px;
+      border-radius: 50%;
+      border-width: 3px;
+      border-style: solid;
+      cursor: pointer;
+      transition: transform 0.2s ease-out;
+    }
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    .Color1 {
+      background-color: lightgreen;
+    }
+    .Color2 {
+      background-color: lightyellow;
+    }
+    .Color3 {
+      background-color: lightblue;
+    }
+    .Color4 {
+      background-color: lightpink;
+    }
+    .Color5 {
+      background-color: lightseagreen;
+    }
+    .Color6 {
+      background-color: cornflowerblue;
+    }
+    .home {
+      background-color: gray;
+      width: 200px;
+      height: 50px;
+      border-radius: 25px;
+      font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      white-space: nowrap;
+      font-size: 20px;
+      align-self: center;
+      transition: transform 0.2s ease-out;
+      border-style: none;
+    }
+    .home:hover{
+        background-color: rgb(189, 189, 189);
+    }
+    .home-container{
+        margin: 200px 20px 20px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+  </style>
+
+  <body>
+    <div class="heading">Color Scheme Switcher</div>
+    <div class="container">
+      <div><button id="lightblue" class="Color3"></button></div>
+      <div><button id="lightpink" class="Color4"></button></div>
+      <div><button id="lightgreen" class="Color1"></button></div>
+      <div><button id="lightyellow" class="Color2"></button></div>
+      <div><button id="lightseagreen" class="Color5"></button></div>
+      <div><button id="cornflowerblue" class="Color6"></button></div>
+    </div>
+    <div class="content">
+      Try clicking on one of the colors above to change the background color of
+      this page
+    </div>
+    <div class="home-container"><button class="home"><a href="index-projects.html" style="text-decoration: none; color:black ">Return Home</a></button></div>
+  </body>
+  <script>
+    buttons = document.querySelectorAll("button");
+    buttons.forEach((element) => {
+      element.addEventListener("click", function colorchanger() {
+        document.body.style.backgroundColor = element.id;
+      });
+    });
+  </script>
+</html>

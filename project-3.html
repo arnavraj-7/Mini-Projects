@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" />
+    <title>Digital CLock</title>
+    <style>
+        body {
+            background-color: rgb(28, 28, 61);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+
+        }
+
+        .clock-container {
+            background-color: orange;
+            height: 150px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+            font-family: Raleway;
+            border-radius: 10px;
+            
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .clock-container:hover{
+            box-shadow: 5px 5px 40px rgb(139, 67, 3);
+            transform: scale(1.05);
+        }
+
+        .message {
+            margin: 50px;
+            font: 20px Raleway;
+            color: grey;
+            text-align: center;
+        }
+        p{
+            padding: 0px;
+            margin: 2px;
+        }
+    .home {
+      background-color: orange;
+      width: 200px;
+      height: 50px;
+      border-radius: 25px;
+      font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      white-space: nowrap;
+      font-size: 20px;
+      align-self: center;
+      transition: transform 0.2s ease-out;
+      border-style: none;
+    }
+    .home:hover{
+        background-color: rgb(255, 188, 2);
+    }
+    .home-container{
+        margin: 100px 20px 20px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    /*chatgpt UI*/
+    /* body {
+    background: linear-gradient(135deg, #1a1a40, #25255d);
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock-container {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px 40px;
+    border-radius: 15px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    color: #61a5c2; /* Soft Teal 
+    text-shadow: 0 0 10px #3b6f82;
+    box-shadow: 0 0 10px rgba(97, 165, 194, 0.4);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.clock-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(97, 165, 194, 0.6);
+}
+
+.message {
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #7fa6b6;
+}
+
+p {
+    margin: 5px 0;
+}
+
+.home-container {
+    margin-top: 40px;
+}
+
+.home {
+    background: linear-gradient(135deg, #50788e, #6c9eb4);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.home:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(80, 120, 142, 0.6);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+ */
+
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <div class="message">Your Local Time is</div>
+    <div class="container">
+        <div class="clock-container">
+
+        </div>
+    </div>
+    <div class="home-container"><button class="home"><a href="index-projects.html" style="text-decoration: none; color:black ">Return Home</a></button></div>
+  </body>
+<script>
+    clock = document.querySelector(".clock-container")
+    setInterval(function () {
+        date = new Date()
+        onlydate = date.toLocaleDateString()
+        clock.innerHTML = `<p>Time:</p><p>${date.toLocaleTimeString()}</p><p>Date:</p>
+        <p>${onlydate}</p>`
+    }, 1000)
+</script>
+
+</html>

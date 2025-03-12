@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BMI Calculator</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" />
+  <style>
+    .Heading {
+      font: 20px;
+      text-align: center;
+      text-decoration: underline;
+      transition: transform 0.2s ease-out;
+    }
+
+    .main-container {
+      display: flex;
+      flex-direction: row;
+      margin: 40px 10px 10px 10px;
+    }
+
+    .container1 {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      border-radius: 10px;
+      padding: 4px 4px 4px 4px;
+      height: 300px;
+      line-height: 30px;
+      display: flex;
+      width: 500px;
+      align-items: center;
+    }
+
+    .container2 {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      border-radius: 10px;
+      padding: 4px 4px 4px 4px;
+      margin: 0px 20px 0px 20px;
+      width: 500px;
+    }
+
+    .container3 {
+      flex: 1;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .input-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 40px 0px 0px 0px;
+
+
+    }
+
+    input {
+      border-width: 1px;
+      height: 25px;
+      width: 200px;
+      border-radius: 3px;
+    }
+
+    .input-container input::placeholder {
+      font-size: 16px;
+    }
+
+    .submit-container {
+      margin: 30px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .submit-button {
+      border-width: 1px;
+      font-size: 18px;
+      width: 90px;
+      height: 30px;
+      border-radius: 10px;
+    }
+
+    .submit-button:hover {
+      cursor: pointer;
+
+    }
+
+    .height {
+      margin: 20px 10px 10px 10px;
+    }
+
+    .weight {
+      margin: 10px 10px 20px 10px;
+    }
+
+    a {
+      text-decoration: none;
+      transition: transform 0.2s easeout;
+
+    }
+
+    a:hover {
+      text-decoration: underline;
+
+    }
+
+    table {
+      border-collapse: collapse;
+      border: 2px solid black;
+      height: 250px;
+      width: 400px;
+    }
+
+    th,
+    td {
+      border: 1px solid black;
+    }
+
+    .table-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+
+    /*All the color styles by Chatgpt */
+    /* Updated Styles for Aesthetic Look */
+    body {
+      background-color: #1e1e2e;
+      /* Dark blue-gray background */
+      color: #e0e0e0;
+      /* Light gray text for contrast */
+      font-family: 'Raleway', sans-serif;
+    }
+
+    .Heading {
+      font-size: 24px;
+      color: #ffcc00;
+      /* Bright yellow heading */
+    }
+
+    .Heading1,
+    .Heading2,
+    .Heading3 {
+      margin-top: 5px;
+      text-align: center;
+      font-size: 25px;
+      color: #ffcc00;
+      margin-bottom: 5px;
+    }
+
+    .container1 {
+      background-color: #25273c;
+      /* Darker grayish-blue */
+      color: #ffffff;
+      /* White text */
+    }
+
+    .container2 {
+      background-color: #364156;
+      /* Dark slate blue */
+      color: #ffffff;
+    }
+
+    .container3 {
+      background-color: #2e3348;
+      /* Deep muted blue */
+      color: #ffffff;
+    }
+
+    p,
+    .link {
+      display: inline-block;
+    }
+
+    input {
+      background-color: #ffffff;
+      color: #000;
+    }
+
+    .submit-button {
+      background-color: #ffcc00;
+      color: #1e1e2e;
+      font-weight: bold;
+    }
+
+    .submit-button:hover {
+      background-color: #ffdb4d;
+      /* Lighter yellow */
+    }
+
+    a {
+      color: #ffcc00;
+    }
+
+    a:hover {
+      color: #ffdb4d;
+    }
+
+    table {
+      border: 2px solid #ffcc00;
+      background-color: #25273c;
+      color: #ffffff;
+    }
+
+    th,
+    td {
+      border: 1px solid #ffcc00;
+    }
+
+    th {
+      background-color: #ffcc00;
+      color: #1e1e2e;
+    }
+    .home {
+      background-color: gray;
+      width: 200px;
+      height: 50px;
+      border-radius: 25px;
+      font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      white-space: nowrap;
+      font-size: 20px;
+      align-self: center;
+      transition: transform 0.2s ease-out;
+      border-style: none;
+    }
+    .home:hover{
+        background-color: rgb(189, 189, 189);
+    }
+    .home-container{
+        margin: 200px 20px 20px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="Heading">
+    <h1>BMI Calculator</h1>
+  </div>
+  <div class="main-container">
+    <div class="container1">
+      <div class="Heading1">About BMI</div>
+      <div class="info">
+        BMI (Body Mass Index) is a numerical value calculated from a person's
+        weight and height. It is used as a general indicator of body fat and
+        helps assess whether a person is underweight, normal weight,
+        overweight, or obese. However, it does not measure body fat directly
+        and may not be accurate for athletes or individuals with high muscle
+        mass.<br>
+        <p>To Know More <a href="https://en.wikipedia.org/wiki/Body_mass_index">Click Here</a>
+        </p>
+      </div>
+    </div>
+    <div class="container2">
+      <div class="Heading2">Calculate your BMI</div>
+      <div class="input-container">
+        <form action="">
+          <div class="weight"><label for="weight">Enter your Weight:</label> <input id="weight" required type="text"
+              placeholder="(in kgs)"></div>
+          <div class="height"><label for="height">Enter your Height:</label>
+            <input id="height" type="text" placeholder="(in meters)">
+          </div>
+          <div class="submit-container"><button class="submit-button">Calculate</button>
+          </div>
+        </form>
+        <div class="BMI"></div>
+      </div>
+    </div>
+    <div class="container3">
+      <div class="Heading3">Table for BMI Values</div>
+      <div class="table-container">
+        <table>
+          <tr>
+            <th>BMI Range</th>
+            <th>Category</th>
+          </tr>
+          <tr>
+            <td>Below 18.5</td>
+            <td>Underweight</td>
+          </tr>
+          <tr>
+            <td>18.5 - 24.9</td>
+            <td>Normal Weight</td>
+          </tr>
+          <tr>
+            <td>25.0 - 29.9</td>
+            <td>Overweight</td>
+          </tr>
+          <tr>
+            <td>30.0 and above</td>
+            <td>Obese</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="home-container"><button class="home"><a href="index-projects.html" style="text-decoration: none; color:black ">Return Home</a></button></div>
+  </body>
+</body>
+<script>
+  let weight
+  let height
+  tableRows = document.querySelectorAll("tr")
+  let form = document.querySelector("form")
+  form.addEventListener('submit', function (e) {
+    e.preventDefault()
+    weight = Number(document.querySelector("#weight").value)
+    height = Number(document.querySelector("#height").value)
+    console.log(weight)
+    console.log(height)
+    console.log(typeof weight)
+    console.log(typeof height)
+    result = document.querySelector(".BMI")
+    if (height === "" || height < 0 || isNaN(height)) {
+      result.innerHTML = "Enter valid Height";
+    }
+    else if (weight === "" || weight < 0 || isNaN(weight)) {
+      result.innerHTML = "Enter valid Weight";
+    }
+    else {
+      let BMI = weight / ((height) * (height))
+      result.innerHTML = `Your BMI is ${BMI.toFixed(2)}`;
+      tableRows.forEach((row, index) => {
+        if (index !== 0) {
+          row.style.backgroundColor = ""; // Reset color
+        }
+      });
+
+      if (BMI < 18.5) {
+        tableRows[1].style.backgroundColor = "#00bfa6";
+      }
+      else if (BMI <= 24.9) {
+        tableRows[2].style.backgroundColor = "#00bfa6";
+
+      }
+      else if (BMI <= 29.9) {
+        tableRows[3].style.backgroundColor = "#00bfa6";
+
+      }
+      else {
+        tableRows[4].style.backgroundColor = "#00bfa6";
+
+      }
+    }
+  })
+</script>
+
+</html>

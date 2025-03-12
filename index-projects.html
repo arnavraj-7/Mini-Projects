@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira Code:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        height: 100%;
+        font-family: Poppins, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #0a192f;
+        /* Clean light gray */
+        color: #112240;
+        /* Darker text for readability */
+      }
+
+      .Heading {
+        font-size: 50px;
+        color: #00bfff ;
+        font-family: Orbitron;
+      }
+
+      .container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .Project-index {
+        height: 300px;
+        width: 450px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 20px;
+        background-color: #112240;
+        /* White for a clean look */
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .Project-index div {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        white-space: nowrap;
+        width: 300px;
+        margin: 10px 10px 10px 10px;
+        padding: 8px 3px 8px 3px;
+        background-color: #112240;
+        /* Light gray-blue */
+
+        border-radius: 8px;
+        transition: transform 0.2s ease-out, box-shadow 0.2s ease-out,
+          background-color 0.3s ease-in-out;
+      }
+
+      .Project-index div:hover {
+        background-color: #233554;
+        /* Slightly darker on hover */
+        transform: scale(1.05);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      a {
+        text-align: center;
+        width: 100%;
+        text-decoration: none;
+        color: #86e3d4;
+      }
+    </style>
+    <title>My Projects</title>
+  </head>
+
+  <body>
+    <div class="Heading">My Projects</div>
+    <div class="container">
+      <div class="Project-index">
+        <div class="project1">
+          <a href="project-1.html" target="_blank">Project One-Color Change</a>
+        </div>
+        <div class="project2">
+          <a href="project-2.html" target="_blank">Project Two-BMI Generator</a>
+        </div>
+        <div class="project3">
+          <a href="project-3.html" target="_blank">Project Three-Digital Clock</a>
+        </div>
+        <div class="project4">
+          <a href="project-4.html" target="_blank">Project Four-Guess the Number</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
