@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number</title>
+    <style>
+        /*css by chatgpt*/
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #FFEBB7, #FFA69E);
+            /* Warm gradient */
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Main Title */
+        div:first-child {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FF6B6B;
+            margin-bottom: 20px;
+        }
+
+        /* Form Styling */
+        form {
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Input Field */
+        input {
+            width: 150px;
+            padding: 8px;
+            border: 2px solid #FF6B6B;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
+            background: #FFF6E5;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #FF3B3B;
+        }
+
+        /* Button */
+        button {
+            background: #FF6B6B;
+            color: white;
+            font-size: 16px;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin: 5px;
+        }
+
+        button:hover {
+            background: #FF3B3B;
+        }
+
+        /* Result and Score */
+        .result,
+        .score {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #5D4037;
+        }
+
+        /* Play Again Button */
+        .play-again {
+            margin-top: 15px;
+        }
+
+        .replay {
+            background: #4CAF50;
+        }
+
+        .replay:hover {
+            background: #388E3C;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        Guess the Number
+    </div>
+    <form action="">
+        <div>Enter your Guessed Number here: <input type="text" name="number" id="entered-number"
+                placeholder="Enter Number" required><button>Enter</button></div>
+    </form>
+    <div class="result"></div>
+    <div class="score"></div>
+    <div class="play-again"></div>
+</body>
+<script>
+    let tries = 0;
+    function generateRandom() { return Math.floor(Math.random() * 100) + 1 }
+    const form = document.querySelector("form")
+    const result = document.querySelector(".result")
+    const score = document.querySelector(".score")
+    const playAgain = document.querySelector(".play-again")
+    let random = generateRandom()
+    function replay() {
+        random = generateRandom()
+        result.innerHTML = ""
+        score.innerHTML = ``
+        run(0)
+
+    }
+
+    function run(tries) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault()
+            let input = document.querySelector("#entered-number").value
+            if (input > 100 || input < 0 || isNaN(input)) {
+                 result.innerHTML = `⚠️Enter a valid number between 1 and 100!⚠️`
+                 run()
+            }else{
+                if (input < random) {
+                result.innerHTML = `Actual number is greater 📉 than ${input}`
+                tries++;
+                run(tries)
+
+            }
+            else if (input > random) {
+                result.innerHTML = `Actual number is smaller📈 than ${input}`
+
+                tries++
+                run(tries)
+            }
+            else {
+                result.innerHTML = `Correct🎉!Actual number is ${random}`
+                tries++;
+                if (tries == 1) {
+                    score.innerHTML = `You guessed it in 1 try`
+                } else {
+                    score.innerHTML = `You guessed it in ${tries} tries`
+                }
+                playAgain.innerHTML = `<button class="replay">Click here to play Again</button>`
+                document.querySelector(".replay").addEventListener('click', () => {
+                    document.querySelector(".replay").style.display = "none";
+                    document.querySelector("#entered-number").value = "";
+                    replay()
+                })
+            }
+            }
+            
+        })
+    }
+    run(0)
+
+
+</script>
+
+</html>
