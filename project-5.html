@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color-Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Happy+Monkey&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style>
+/* General Styles */
+/* General Styles */
+/* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap');
+
+body {
+    background: #1e1e1e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Happy Monkey', sans-serif;
+    color: #e5e5e5;
+    text-align: center;
+    margin: 0;
+}
+
+/* Heading */
+h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #d4d4d4;
+}
+
+/* Button Container */
+div {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+button {
+    padding: 10px 20px;
+    border: 1px solid #3b3b3b;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #2e2e2e;
+    color: #f1f1f1;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Start Button */
+.start {
+    background: #3a5fcd;
+    border-color: #2c4a9e;
+}
+
+.start:hover {
+    background: #314fba;
+}
+
+.start:active {
+    transform: scale(0.96);
+}
+
+/* Stop Button */
+.stop {
+    background: #c53030;
+    border-color: #9e2525;
+}
+
+.stop:hover {
+    background: #b02424;
+}
+
+.stop:active {
+    transform: scale(0.96);
+}
+
+/* Color Box */
+.Color {
+    width: 140px;
+    height: 140px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+    background-color: rgb(0, 0, 0);
+    transition: background 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+/* Subtle Hover Glow Effect */
+.Color:hover {
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+}
+
+/* RGB Code Display */
+.rgb {
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 15px;
+    color: #a1a1a1;
+}
+
+
+
+    </style>
+</head>
+
+<body>
+    <h1>Random Color Generator</h1>
+
+    <div>
+        <div><button class="start">START</button></div>
+        <div> <button class="stop">STOP</button></div>
+    </div>
+    <div class="Color"></div>
+    <div class="rgb"></div>
+
+</body>
+
+<script>
+    let start = document.querySelector(".start")
+    let stop = document.querySelector(".stop")
+    let box = document.querySelector(".Color")
+    let code = document.querySelector(".rgb")
+    start.addEventListener("click", (e) => {
+        
+        begin = setInterval(() => {
+            let r = Math.floor(Math.random() * 255) + 0
+            let g = Math.floor(Math.random() * 255) + 0
+            let b = Math.floor(Math.random() * 255) + 0
+            // document.querySelector(".Color").style.backgroundColor = `(${r} ${g} ${b})`
+            box.style.backgroundColor=`rgb(${r} ${g} ${b})`
+            // code.innerHTML=""
+        code.innerHTML=box.style.backgroundColor
+
+            console.log(r + " " + g + " " + b);
+
+        }, 1200)
+
+    })
+    stop.addEventListener("click", (e) => {
+        code.innerHTML=box.style.backgroundColor
+        clearInterval(begin)
+    })
+</script>
+
+</html>
